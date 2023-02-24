@@ -23,8 +23,10 @@ const reduser=(state={counter:0,payload:0},action)=>{
             state.payload=action.payload.value;
             return {...state};
             case 'CREATELIST':
-            
-            return {...state};
+                console.log('action',action.categoryList)
+            const listOfCategory=action.categoryList
+            console.log('listOfCategory',listOfCategory);
+            return {...state,listOfCategory};
         default:
             return {...state};
     }
