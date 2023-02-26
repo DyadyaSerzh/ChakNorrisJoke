@@ -3,8 +3,8 @@ const CategoryButton=({list})=>{
     console.log('list===',list)
     return(
         <>
-        {list.map((item)=>(
-        <button >{item}</button>)
+        {list.map((item,i)=>(
+        <button key={i}>{item}</button>)
         )}
         </>
         

@@ -1,5 +1,5 @@
-import {createStore} from 'redux';
-// 1. Use Chuck Norris API to get jokes in JSON format - https://api.chucknorris.io/ 
+import { createStore } from "redux";
+// 1. Use Chuck Norris API to get jokes in JSON format - https://api.chucknorris.io/
 // 2. Ability to get a random joke.
 // 3. Ability to get a random joke from categories (Use API to get all available categories).
 // 4. Ability to get jokes by free text search.
@@ -8,29 +8,22 @@ import {createStore} from 'redux';
 // 7. Favourite jokes should be available after reloading the page and stored in the browser
 // (No need to use Back-end).
 
-const reduser=(state={counter:0,payload:0},action)=>{
-    switch (action.type){
-        case 'INCREMENT':
-            state.counter=state.counter+1
-            return {...state};
-        case 'DECREMENT':
-            state.counter=state.counter-1;
-            return {...state};
-        case 'RESET':
-            state.counter=0;
-            return {...state};
-        case 'GETRANDOMJOKE':
-            state.payload=action.payload.value;
-            return {...state};
-            case 'CREATELIST':
-                console.log('action',action.categoryList)
-            const listOfCategory=action.categoryList
-            console.log('listOfCategory',listOfCategory);
-            return {...state,listOfCategory};
-        default:
-            return {...state};
-    }
+const reduser = (state = { counter: 0, payload: 0 }, action) => {
+  switch (action.type) {
+    case "GETRANDOMJOKE":
+      state.payload = action.payload.value;
+      return { ...state };
+    case "CREATELIST":
+      const listOfCategory = action.categoryList;
+      console.log("listOfCategory", listOfCategory);
+      return { ...state, listOfCategory };
+    case "SetTextOfSearch":
+      console.log("TextOfSearch", action.TextOfSearch);
+      return { ...state };
+    default:
+      return { ...state };
+  }
 };
-const store=createStore(reduser);
+const store = createStore(reduser);
 
 export default store;
