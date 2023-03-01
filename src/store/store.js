@@ -8,7 +8,7 @@ import { createStore } from "redux";
 // 7. Favourite jokes should be available after reloading the page and stored in the browser
 // (No need to use Back-end).
 
-const reduser = (state = { counter: 0, payload: 0 }, action) => {
+const reduser = (state = {payload: 0 }, action) => {
   switch (action.type) {
     case "GETRANDOMJOKE":
       state.payload = action.payload.value;
@@ -20,6 +20,10 @@ const reduser = (state = { counter: 0, payload: 0 }, action) => {
     case "SetTextOfSearch":
       console.log("TextOfSearch", action.TextOfSearch);
       return { ...state };
+    case "SETJOKECATEGORY":
+      const CategoryJoke=action.CategoryJoke
+      console.log('CategoryJoke',CategoryJoke)
+      return { ...state, CategoryJoke };
     default:
       return { ...state };
   }

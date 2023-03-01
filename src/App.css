@@ -3,10 +3,30 @@ body {
   padding: 0;
 }
 .App {
-  text-align: center;
+  text-align: left;
   display: grid;
   grid-template-columns: 2fr 1fr ;
+  padding: 0px;
 
+}
+.dFlex{
+  display: flex;
+  flex-direction: column;
+  
+}
+.flexInline{
+  display: inline-block;
+}
+
+h1,h2,h3{
+  margin: 0;
+  padding: 0;
+}
+.leftCol{
+  padding: 40px;
+}
+.rightCol{
+  padding: 40px;
 }
 
 @keyframes App-logo-spin {

@@ -1,7 +1,7 @@
 import "./App.css";
 import { Provider } from "react-redux";
 import store from "./store";
-import Counter from "./components/counter";
+import ChuckNorris from "./components/chuckNorris";
 import Favorits from "./components/Favorits";
 
 function App() {
@@ -12,9 +12,11 @@ function App() {
           <h3>MSI 2023</h3>
           <h1>Hey!</h1>
           <h3>Let’s try to find a joke for you:</h3>
-          <Counter></Counter>
+          <div >
+            <ChuckNorris></ChuckNorris>
+          </div>
         </div>
-        <div>
+        <div className="rightCol">
           <Favorits></Favorits>
         </div>
       </div>

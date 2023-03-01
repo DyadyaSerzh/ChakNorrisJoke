@@ -10,12 +10,11 @@ import Search from "../search";
 // https://api.chucknorris.io/jokes/search?query={query} search by text
 // sum w=1440, right=480
 // const listTest=[1,2,3,3]
-const Counter = () => {
-  const couster = useSelector(state => state);
+const ChuckNorris = () => {
+  const state = useSelector(state => state);
   const dispatch = useDispatch();
-  console.log(couster);
+  console.log(state);
   
-  const [CategoryShow, setCategoryShow] = useState(false);
   useEffect(() => {
     fetch(`https://api.chucknorris.io/jokes/categories`)
       .then((res) => res.json())
@@ -24,7 +23,6 @@ const Counter = () => {
       });
     }, [dispatch]);
   
-
   const getRandomResult = () => {
     fetch(`https://api.chucknorris.io/jokes/random`)
       .then((res) => res.json())
@@ -32,32 +30,35 @@ const Counter = () => {
         dispatch({ type: "GETRANDOMJOKE", payload: data });
       });
   };
-
+  const setJokeCategory=(value)=>{
+    dispatch({type:'SETJOKECATEGORY',CategoryJoke:value})
+  }
   return (
-    <div>
-      <form
-        action="searchForm"
-        onChange={() => {
-          setCategoryShow(true);
-        }}
-      >
-        <input type="radio" value="random" name="searchRadio" />
-        random
+    <div className="ChuckNorris">
+      <form className="dFlex" action="searchForm" onChange={(event)=>{setJokeCategory(event.target.value)}}>
+        <div> 
+          <input type="radio" value="random" name="searchRadio" />
+          <label htmlFor="searchRadio">searchRadio</label>
+        </div>
+        <div>
         <input type="radio" value="category" name="searchRadio" />
-        category
-        {CategoryShow ? (
-          <CategoryButton list={couster.listOfCategory}></CategoryButton>
+        <label htmlFor="category">category</label>
+        {state.CategoryJoke==="category" ? (
+          <CategoryButton list={state.listOfCategory}></CategoryButton>
         ) : null}
+        </div>
+        <div>
         <input type="radio" value="search" name="searchRadio" />
-        search
+        <label htmlFor="search">search</label>
+        </div>
       </form>
       <div>
         <button onClick={() => getRandomResult()}>GETJOKE</button>
           <Search></Search>
-        {!!couster.payload? <p>{couster.payload}</p> : null}
+        {!!state.payload? <p>{state.payload}</p> : null}
       </div>
     </div>
   );
 
 };
-export default Counter;
+export default ChuckNorris;
