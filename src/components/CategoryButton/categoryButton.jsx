@@ -4,7 +4,12 @@ const CategoryButton=({list})=>{
     return(
         <div className="flexInline">
         {list.map((item,i)=>(
-        <button key={i}>{item}</button>)
+            <div>
+            <input key={i} type="radio" value={item} name="categoryRadio" />
+            <label htmlFor={item}>{item}</label>
+            </div>
+            )
+        // <input key={i} type="radio" value="search" name="categoryRadio">{item}</input>)
         )}
         </div>
         

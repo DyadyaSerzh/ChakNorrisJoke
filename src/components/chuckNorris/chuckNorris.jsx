@@ -30,6 +30,29 @@ const ChuckNorris = () => {
         dispatch({ type: "GETRANDOMJOKE", payload: data });
       });
   };
+  const getResult=()=>{
+    let api
+    let category="music"
+    let query=state.TextOfSearch
+    console.log('stateOnClick',state)
+    if(state.CategoryJoke==="category"){
+      if(category){api=`https://api.chucknorris.io/jokes/random?category=${category}`
+      console.log('api==',api)}
+      else return
+    }else if(state.CategoryJoke==="search"){
+      api=`https://api.chucknorris.io/jokes/search?query={${query}}`
+      console.log('api==',api)
+    }else{
+      api=`https://api.chucknorris.io/jokes/random`
+    };
+    fetch(api)
+      .then((res) => res.json())
+      .then((data) => {
+        dispatch({ type:"GETJOKE", payload: data });
+      });
+      console.log('data of jokes',state)
+
+  }
   const setJokeCategory=(value)=>{
     dispatch({type:'SETJOKECATEGORY',CategoryJoke:value})
   }
@@ -38,7 +61,7 @@ const ChuckNorris = () => {
       <form className="dFlex" action="searchForm" onChange={(event)=>{setJokeCategory(event.target.value)}}>
         <div> 
           <input type="radio" value="random" name="searchRadio" />
-          <label htmlFor="searchRadio">searchRadio</label>
+          <label htmlFor="random">random</label>
         </div>
         <div>
         <input type="radio" value="category" name="searchRadio" />
@@ -53,8 +76,8 @@ const ChuckNorris = () => {
         </div>
       </form>
       <div>
-        <button onClick={() => getRandomResult()}>GETJOKE</button>
-          <Search></Search>
+        <button onClick={() => getResult()}>GETJOKE</button>
+        {state.CategoryJoke==="search"?<Search></Search>:null}
         {!!state.payload? <p>{state.payload}</p> : null}
       </div>
     </div>
