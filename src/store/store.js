@@ -26,6 +26,10 @@ const reduser = (state = {payload: 0 }, action) => {
       const CategoryJoke=action.CategoryJoke
       console.log('CategoryJoke',CategoryJoke)
       return { ...state, CategoryJoke };
+    case "setCategoryForSearch":
+      const CategoryForSearch=action.CategoryForSearch
+      console.log('CategoryForSearch',CategoryForSearch)
+      return { ...state, CategoryForSearch};
     default:
       return { ...state };
   }

@@ -1,16 +1,22 @@
+import { useDispatch } from "react-redux"
 const CategoryButton=({list})=>{
+    const dispatch=useDispatch()
+    const setCategory=(target)=>{
+        dispatch({type:"setCategoryForSearch",CategoryForSearch:target})
+        console.log('list===',target)
+    }
     
-    console.log('list===',list)
     return(
         <div className="flexInline">
+            <form action="setCategory" onChange={event=>setCategory(event.target.value)}>
         {list.map((item,i)=>(
             <div>
             <input key={i} type="radio" value={item} name="categoryRadio" />
             <label htmlFor={item}>{item}</label>
             </div>
             )
-        // <input key={i} type="radio" value="search" name="categoryRadio">{item}</input>)
         )}
+        </form>
         </div>
         
     )
