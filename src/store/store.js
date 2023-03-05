@@ -11,7 +11,7 @@ import { createStore } from "redux";
 const reduser = (state = {payload: 0 }, action) => {
   switch (action.type) {
     case "GETJOKE":
-      const JokeList=action.payload.value;
+      const JokeList=action.payload.result;
       console.log('JokeList',JokeList);
       return { ...state,JokeList};
     case "CREATELIST":
@@ -19,7 +19,6 @@ const reduser = (state = {payload: 0 }, action) => {
       console.log("listOfCategory", listOfCategory);
       return { ...state, listOfCategory };
     case "SetTextOfSearch":
-      console.log("TextOfSearch", action.TextOfSearch);
       const TextOfSearch=action.TextOfSearch;
       return { ...state,TextOfSearch };
     case "SETJOKECATEGORY":

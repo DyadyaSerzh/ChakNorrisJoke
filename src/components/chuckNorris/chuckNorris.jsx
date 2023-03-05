@@ -12,6 +12,11 @@ const ChuckNorris = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   console.log(state);
+  const FetchTest=()=>{
+    fetch(`https://api.chucknorris.io/jokes/search?query=run`,{headers: {
+      'mode':'no-cors'
+    }}).then((responce)=>responce.json()).then(data=>console.log('testFetch',data))
+  }
 
   useEffect(() => {
     fetch(`https://api.chucknorris.io/jokes/categories`)
@@ -39,7 +44,7 @@ const ChuckNorris = () => {
         console.log("api==", api);
       } else return;
     } else if (state.CategoryJoke === "search") {
-      api = `https://api.chucknorris.io/jokes/search?query={${query}}`;
+      api = `https://api.chucknorris.io/jokes/search?query=${query}`;
       console.log("api==", api);
     } else {
       api = `https://api.chucknorris.io/jokes/random`;
@@ -47,6 +52,7 @@ const ChuckNorris = () => {
     fetch(api)
       .then((res) => res.json())
       .then((data) => {
+        console.log('dataAfterFetch=====',data)
         dispatch({ type: "GETJOKE", payload: data });
       });
     console.log("data of jokes", state);
@@ -87,6 +93,7 @@ const ChuckNorris = () => {
         {state.CategoryJoke === "search" ? <Search></Search> : null}
         {!!state.payload ? <p>{state.payload}</p> : null}
       </div>
+      <button onClick={FetchTest}>FetchTest</button>
     </div>
   );
 };
