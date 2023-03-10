@@ -12,12 +12,7 @@ const ChuckNorris = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   console.log(state);
-  const FetchTest=()=>{
-    fetch(`https://api.chucknorris.io/jokes/search?query=run`,{headers: {
-      'mode':'no-cors'
-    }}).then((responce)=>responce.json()).then(data=>console.log('testFetch',data))
-  }
-
+  
   useEffect(() => {
     fetch(`https://api.chucknorris.io/jokes/categories`)
       .then((res) => res.json())
@@ -26,13 +21,6 @@ const ChuckNorris = () => {
       });
   }, [dispatch]);
 
-  const getRandomResult = () => {
-    fetch(`https://api.chucknorris.io/jokes/random`)
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch({ type: "GETRANDOMJOKE", payload: data });
-      });
-  };
   const getResult = () => {
     let api;
     let category = state.CategoryForSearch;
@@ -93,7 +81,6 @@ const ChuckNorris = () => {
         {state.CategoryJoke === "search" ? <Search></Search> : null}
         {!!state.payload ? <p>{state.payload}</p> : null}
       </div>
-      <button onClick={FetchTest}>FetchTest</button>
     </div>
   );
 };

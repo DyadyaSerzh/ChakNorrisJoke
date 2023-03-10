@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 import ChuckNorris from "./components/chuckNorris";
 import Favorits from "./components/Favorits";
+import JokeListBlock from "./components/JokeListBlock";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <div >
             <ChuckNorris></ChuckNorris>
           </div>
+          <JokeListBlock></JokeListBlock>
         </div>
         <div className="rightCol">
           <Favorits></Favorits>
