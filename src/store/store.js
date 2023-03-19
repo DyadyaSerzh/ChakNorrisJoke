@@ -11,8 +11,10 @@ import { createStore } from "redux";
 const reduser = (state = {payload: 0, pageForShow:0,listForShow:{} }, action) => {
   switch (action.type) {
     case "GETJOKE":
-      const JokeList=action.payload.result;
-      console.log('JokeList',JokeList);
+      let JokeList;
+      if(action.payload.result){JokeList=action.payload.result;}
+      else {JokeList=action.payload;}
+      
       return { ...state,JokeList};
     case "JokeForShow":
       const JokeForShow=action.payload;

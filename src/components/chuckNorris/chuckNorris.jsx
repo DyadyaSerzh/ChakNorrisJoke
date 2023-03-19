@@ -79,7 +79,7 @@ const ChuckNorris = () => {
       <div>
         <button onClick={() => getResult()}>GETJOKE</button>
         {state.CategoryJoke === "search" ? <Search></Search> : null}
-        {!!state.payload ? <p>{state.payload}</p> : null}
+        
       </div>
     </div>
   );

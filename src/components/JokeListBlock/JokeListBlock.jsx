@@ -1,5 +1,5 @@
 import JokeBlock from "./jokeBlock";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import ListOfPages from "./listOfPages";
 
 const JokeListBlock = () => {
@@ -10,21 +10,24 @@ const JokeListBlock = () => {
   
   console.log('JokeList===',JokeList)
   let ListForPrint=[];
-  const dispatch = useDispatch();
   let QuantityOfPages
   if(JokeList){
+    if(JokeList.value){
+      console.log('JL',JokeList)
+      ListForPrint[0]=JokeList}
+    else{
     QuantityOfPages=Math.ceil(JokeList.length/QuantityOnPage)
     for(let i=pageForShow;i<=JokeList.length&&i<pageForShow+10;i++){
       ListForPrint[i]=JokeList[i]
     }
-    console.log('ListForPrint====',ListForPrint)
+    console.log('ListForPrint====',ListForPrint)}
   }
   
   return (
     <>
     {JokeList?
-      <div className="JokeListBlock">jokeBlock
-      {ListForPrint.map(element=>{return <JokeBlock value={element.value}></JokeBlock> })}
+      <div className="JokeListBlock">
+      {ListForPrint.map(element=>{return <JokeBlock value={element}></JokeBlock> })}
       <ListOfPages number={QuantityOfPages}></ListOfPages>
     </div>
     :null}
