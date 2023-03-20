@@ -29,10 +29,6 @@ h1,h2,h3{
 .rightCol{
   padding: 40px;
 };
-.jokeBlock{
-  border: 1px solid black;
-  border-radius: 5%;
-}
 
 @keyframes App-logo-spin {
   from {
