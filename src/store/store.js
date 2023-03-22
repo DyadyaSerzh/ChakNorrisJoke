@@ -39,6 +39,16 @@ const reduser = (state = {payload: 0, pageForShow:0,listForShow:{} }, action) =>
       const CategoryForSearch=action.CategoryForSearch
       console.log('CategoryForSearch',CategoryForSearch)
       return { ...state, CategoryForSearch};
+    case "CreateFavoritesList":
+      console.log('FavoritesLis',action.payload)
+      const FavoritsList=action.payload;
+      return {...state, FavoritsList}
+    case "ChangeFavorits":
+      const FavJoke=state.FavoritsList.filter(element=>element.id===action.payload);
+      state.FavoritsList.push(FavJoke)
+
+      console.log("FavJoke",state.FavoritsList)
+      return {...state}
     default:
       return { ...state };
   }

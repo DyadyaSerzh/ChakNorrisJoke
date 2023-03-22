@@ -21,7 +21,7 @@ const JokeListBlock = () => {
       ListForPrint[i]=JokeList[i]
     }
     console.log('ListForPrint====',ListForPrint)}
-  }
+  };
   
   return (
     <>
