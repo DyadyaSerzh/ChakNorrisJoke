@@ -8,7 +8,7 @@ import { createStore } from "redux";
 // 7. Favourite jokes should be available after reloading the page and stored in the browser
 // (No need to use Back-end).
 
-const reduser = (state = {payload: 0, pageForShow:0,listForShow:{} }, action) => {
+const reduser = (state = {payload: 0, pageForShow:0,listForShow:{},FavoritsList:[] }, action) => {
   switch (action.type) {
     case "GETJOKE":
       let JokeList;
@@ -44,10 +44,17 @@ const reduser = (state = {payload: 0, pageForShow:0,listForShow:{} }, action) =>
       const FavoritsList=action.payload;
       return {...state, FavoritsList}
     case "ChangeFavorits":
-      const FavJoke=state.FavoritsList.filter(element=>element.id===action.payload);
-      state.FavoritsList.push(FavJoke)
+      if(state.FavoritsList.includes(action.payload)){
+      state.FavoritsList= state.FavoritsList.filter(element=>element.id===!action.payload);
+      }
+      else{
+        state.FavoritsList.push(action.payload)  
+      }
+      console.log('changeFaqv',action.payload,state)
+      // const FavJoke=state.FavoritsList.filter(element=>element.id===action.payload);
+      // state.FavoritsList.push(FavJoke)
 
-      console.log("FavJoke",state.FavoritsList)
+      // console.log("FavJoke",state.FavoritsList)
       return {...state}
     default:
       return { ...state };

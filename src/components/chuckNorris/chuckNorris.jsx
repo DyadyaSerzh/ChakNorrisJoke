@@ -19,11 +19,7 @@ const ChuckNorris = () => {
       .then((data) => {
         dispatch({ type: "CREATELIST", categoryList: data });
       });
-      let FavoritesList=localStorage.getItem('FavoritesList');
-      if (!FavoritesList){
-        FavoritesList=JSON.stringify([{"a":"1"}])
-      }
-      dispatch({type:"CreateFavoritesList",payload:JSON.parse(FavoritesList)})
+      
   }, [dispatch]);
 
   const getResult = () => {
