@@ -3,4 +3,8 @@
     border: 1px solid black;
     border-radius: 15px;
   }
+  .heart{
+    height: 20px;
+    width: 20px;
+  }
   

@@ -8,18 +8,16 @@ const Favorits=()=>{
     useEffect(()=>
         {
            
-            let FavoritesList=localStorage.getItem('FavoritesList');
+            let FavoritesList=localStorage.getItem('FavoritsList');
       if (!FavoritesList){
         FavoritesList=JSON.stringify([])
       }
-      console.log('fl====',FavoritesList)
       dispatch({type:"CreateFavoritesList",payload:JSON.parse(FavoritesList)});
         },[dispatch]
     )
     const FavoritsList=state.FavoritsList;
 
     if(!FavoritsList.length){console.log('favEmpty',(Favorits.length))}
-    console.log('FavoritsList=====',FavoritsList)
     return(
         
         <div>

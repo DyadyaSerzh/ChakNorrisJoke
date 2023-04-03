@@ -8,19 +8,16 @@ const JokeListBlock = () => {
   const pageForShow=state.pageForShow;
   const JokeList=state.JokeList;
   
-  console.log('JokeList===',JokeList)
   let ListForPrint=[];
   let QuantityOfPages
   if(JokeList){
     if(JokeList.value){
-      console.log('JL',JokeList)
       ListForPrint[0]=JokeList}
     else{
     QuantityOfPages=Math.ceil(JokeList.length/QuantityOnPage)
     for(let i=pageForShow;i<=JokeList.length&&i<pageForShow+10;i++){
       ListForPrint[i]=JokeList[i]
-    }
-    console.log('ListForPrint====',ListForPrint)}
+    }}
   };
   
   return (
