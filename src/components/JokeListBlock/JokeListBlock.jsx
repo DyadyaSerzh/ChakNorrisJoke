@@ -24,7 +24,7 @@ const JokeListBlock = () => {
     <>
     {JokeList?
       <div className="JokeListBlock">
-      {ListForPrint.map(element=>{return <JokeBlock value={element}></JokeBlock> })}
+      {ListForPrint.map(element=>{return <JokeBlock value={element} clName='jokeBlock main' ></JokeBlock> })}
       <ListOfPages number={QuantityOfPages}></ListOfPages>
     </div>
     :null}

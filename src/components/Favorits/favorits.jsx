@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import './favorits.css'
 import { useEffect } from "react";
 import JokeBlock from "../JokeListBlock/jokeBlock";
 
@@ -21,6 +22,7 @@ const Favorits=()=>{
     return(
         
         <div>
+            <h3>Favorite</h3>
         {(!FavoritsList.length)?<div>No favorites yet</div>:
         FavoritsList.map(elem=>{return(
             <>
