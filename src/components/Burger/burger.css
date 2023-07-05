@@ -1,0 +1,39 @@
+.burger {
+    position: relative;
+    top: -5px;
+    width: 50px;
+    height: 50px;
+    background-color: #488ae0;
+    padding: 0.5%;
+}
+.burger span{
+    position: absolute;
+    display: block;
+    width: 90%;
+    height: 3px;
+    background-color: black;
+    transition: all 0.5s;
+    
+}
+.burger span:nth-child(1){
+    transform: translateY(-15px);
+}
+.burger.open span:nth-child(1){
+    transform: translateY(0px);
+    rotate: 45deg;
+}
+
+.burger span:nth-child(2){
+    transform: translateY(0px);
+}
+.burger.open span:nth-child(2){
+    transform: translateY(0px);
+    rotate: 45deg;
+}
+.burger span:nth-child(3){
+    transform: translateY(15px);
+}
+.burger.open span:nth-child(3){
+    transform: translateY(0px);
+    rotate: -45deg;
+}
