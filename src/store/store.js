@@ -26,18 +26,15 @@ const reduser = (state = {payload: 0, pageForShow:0,listForShow:{},FavoritsList:
         return {...state};
     case "CREATELIST":
       const listOfCategory = action.categoryList;
-      console.log("listOfCategory", listOfCategory);
       return { ...state, listOfCategory };
     case "SetTextOfSearch":
       const TextOfSearch=action.TextOfSearch;
       return { ...state,TextOfSearch };
     case "SETJOKECATEGORY":
       const CategoryJoke=action.CategoryJoke
-      console.log('CategoryJoke',CategoryJoke)
       return { ...state, CategoryJoke };
     case "setCategoryForSearch":
       const CategoryForSearch=action.CategoryForSearch
-      console.log('CategoryForSearch',CategoryForSearch)
       return { ...state, CategoryForSearch};
     case "CreateFavoritesList":
       console.log('FavoritesLis',action.payload)
@@ -45,16 +42,12 @@ const reduser = (state = {payload: 0, pageForShow:0,listForShow:{},FavoritsList:
       return {...state, FavoritsList}
     case "ChangeFavorits":
       if(state.FavoritsList.includes(action.payload)){
-      state.FavoritsList= state.FavoritsList.filter(element=>element.id===!action.payload);
+        state.FavoritsList= state.FavoritsList.filter(element=>element.id!==action.payload.id);
       }
       else{
         state.FavoritsList.push(action.payload)  
       }
-      console.log('changeFaqv',action.payload,state)
-      // const FavJoke=state.FavoritsList.filter(element=>element.id===action.payload);
-      // state.FavoritsList.push(FavJoke)
-
-      // console.log("FavJoke",state.FavoritsList)
+      localStorage['FavoritsList']=(JSON.stringify(state.FavoritsList))
       return {...state}
     default:
       return { ...state };

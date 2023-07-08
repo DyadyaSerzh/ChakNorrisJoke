@@ -4,6 +4,7 @@ import store from "./store";
 import ChuckNorris from "./components/chuckNorris";
 import Favorits from "./components/Favorits";
 import JokeListBlock from "./components/JokeListBlock";
+import Burger from "./components/Burger";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <JokeListBlock></JokeListBlock>
         </div>
         <div className="rightCol">
+          <Burger/>
           <Favorits></Favorits>
         </div>
       </div>

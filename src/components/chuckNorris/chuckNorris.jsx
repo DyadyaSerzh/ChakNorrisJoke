@@ -11,7 +11,6 @@ import Search from "../search";
 const ChuckNorris = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  console.log(state);
   
   useEffect(() => {
     fetch(`https://api.chucknorris.io/jokes/categories`)
@@ -26,25 +25,20 @@ const ChuckNorris = () => {
     let api;
     let category = state.CategoryForSearch;
     let query = state.TextOfSearch;
-    console.log("stateOnClick", state);
     if (state.CategoryJoke === "category") {
       if (category) {
         api = `https://api.chucknorris.io/jokes/random?category=${category}`;
-        console.log("api==", api);
       } else return;
     } else if (state.CategoryJoke === "search") {
       api = `https://api.chucknorris.io/jokes/search?query=${query}`;
-      console.log("api==", api);
     } else {
       api = `https://api.chucknorris.io/jokes/random`;
     }
     fetch(api)
       .then((res) => res.json())
       .then((data) => {
-        console.log('dataAfterFetch=====',data)
         dispatch({ type: "GETJOKE", payload: data });
       });
-    console.log("data of jokes", state);
   };
   const setJokeCategory = (value) => {
     dispatch({ type: "SETJOKECATEGORY", CategoryJoke: value });
