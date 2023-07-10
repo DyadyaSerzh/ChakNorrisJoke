@@ -7,9 +7,13 @@ const Burger=()=>{
         
     }
     return (   
-        <button className='burger' onClick={toggleMenu}>
-            <span></span><span></span><span></span>
-        </button>
+        
+        <div className='burger-container'>
+            <button className='burger' onClick={toggleMenu}>
+                <span></span><span></span>
+            </button>
+            <span className='burger-name'>Favourite</span>
+        </div>
     )
 }
 

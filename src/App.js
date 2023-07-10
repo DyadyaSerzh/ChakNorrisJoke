@@ -11,16 +11,19 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <div className="leftCol">
-          <h3>MSI 2023</h3>
-          <h1>Hey!</h1>
-          <h3>Let’s try to find a joke for you:</h3>
+          <div>
+            <h3>MSI 2023</h3>
+            <h1>Hey!</h1>
+            <h3>Let’s try to find a joke for you:</h3>
+          </div>
+          <Burger/>
           <div >
             <ChuckNorris></ChuckNorris>
           </div>
           <JokeListBlock></JokeListBlock>
         </div>
         <div className="rightCol">
-          <Burger/>
+          
           <Favorits></Favorits>
         </div>
       </div>
