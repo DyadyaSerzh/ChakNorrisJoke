@@ -3,6 +3,8 @@ import './burger.css'
 const Burger=()=>{
     const toggleMenu=()=>{
         document.querySelector('.burger').classList.toggle('open')
+        document.querySelector('.rightCol').classList.toggle('open')
+        document.querySelector('.overlay').classList.toggle('open')
         console.log('menu open')
         
     }

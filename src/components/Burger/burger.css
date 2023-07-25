@@ -1,8 +1,10 @@
 .burger-container {
+    width: 128px;
     display: none;
     position: absolute;
-    left: 74%;
+    right: 0px;
     top: 40px;
+    z-index: 15;
 }
 .burger-name{
     position: absolute;
@@ -19,6 +21,7 @@
 .burger span{
     position: absolute;
     display: block;
+    
     width: 14px;
     height: 2px;
     background-color: white;
@@ -44,8 +47,9 @@
 
 
 /* laptop options */
-@media screen and (max-width: 820px) {
+@media screen and (max-width: 834px) {
     .burger-container {
         display: block;
     }
+    
 }

@@ -5,6 +5,7 @@ import ChuckNorris from "./components/chuckNorris";
 import Favorits from "./components/Favorits";
 import JokeListBlock from "./components/JokeListBlock";
 import Burger from "./components/Burger";
+import Overlay from "./components/Overlay";
 
 function App() {
   return (
@@ -16,16 +17,17 @@ function App() {
             <h1>Hey!</h1>
             <h3>Let’s try to find a joke for you:</h3>
           </div>
-          <Burger/>
+          
           <div >
             <ChuckNorris></ChuckNorris>
           </div>
           <JokeListBlock></JokeListBlock>
         </div>
-        <div className="rightCol">
-          
+        <div className="rightCol" >
           <Favorits></Favorits>
         </div>
+        <Burger/>
+        <Overlay/>
       </div>
     </Provider>
   );
