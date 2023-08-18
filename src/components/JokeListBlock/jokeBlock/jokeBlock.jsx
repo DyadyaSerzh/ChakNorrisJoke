@@ -11,7 +11,7 @@ const JokeBlock=({value, clName="jokeBlock"})=>{
     let favorite=(state.FavoritsList.includes(value))
     const ChangeFavorits=()=>{dispatch({type:"ChangeFavorits",payload:value})};
     return(
-        <div className={clName}  id={id} >
+        <div className={clName}  id={id} key={id}>
             <div className='jokeMsg'><img src="./message.png" alt="" /></div>
             <p className='textValueJoke'>{textValue}</p>
             <div className='heart'>
